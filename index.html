@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sekolah Alam Creative Banjarbaru</title>
+    <link rel="icon" href="assets/img/logo_clear.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        .swiper {
+            overflow: visible !important;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white z-50 shadow-md">
+        <div class="flex items-center justify-between px-6 py-4">
+            <a href="#">
+                <img src="assets/img/logo_clear.png" alt="Logo" class="w-36" />
+            </a>
+            <button class="md:hidden" id="open-sidebar">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+
+            <div class="hidden md:flex gap-4 font-semibold text-lg" id="menu">
+                <a href="#beranda" class="hover:text-[#1D4F86] px-3">Beranda</a>
+                <a href="#tentang_kami" class="hover:text-[#1D4F86] px-3">Tentang Kami</a>
+                <a href="#visimisi" class="hover:text-[#1D4F86] px-3">Visi Misi</a>
+                <a href="#keunggulan" class="hover:text-[#1D4F86] px-3">Keunggulan</a>
+                <a href="#kontak" class="hover:text-[#1D4F86] px-3">Kontak Kami</a>
+            </div>
+        </div>
+        <!-- Sidebar Mobile - Muncul dari kanan -->
+        <div id="mobile-sidebar" class="fixed inset-y-0 right-0 w-64 bg-white z-50 transform translate-x-full transition-transform duration-300 md:hidden shadow-lg">
+            <div class="flex items-center justify-between p-4 border-b">
+                <span class="font-bold text-xl">Menu</span>
+                <button id="close-sidebar">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col p-4 gap-8 text-gray-800 text-lg">
+                <a href="#beranda_mobile" class="flex items-center gap-2"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                    </span> Beranda</a>
+                <a href="#tentang_kami" class="flex items-center gap-2"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                        </svg>
+                    </span> Tentang Kami</a>
+                <a href="#visimisi" class="flex items-center gap-2"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                        </svg>
+                    </span> Visi & Misi</a>
+                <a href="#keunggulan" class="flex items-center gap-2"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                        </svg>
+                    </span> Keunggulan</a>
+                <a href="#kontak" class="flex items-center gap-2"><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                        </svg>
+                    </span> Kontak Kami</a>
+            </nav>
+        </div>
+
+        <!-- Overlay Gelap -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hidden md:flex bg-[url('assets/img/background.jpg')] bg-cover bg-center">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center py-12 md:py-16 px-4 gap-10">
+            <div class="text-center lg:text-left lg:w-1/2">
+                <h1 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="text-4xl md:text-6xl text-[#1D4F86] font-bold drop-shadow-md">
+                    Sekolah Alam</span>
+                    <div class="text-[#F96A3C]">Creative Banjarbaru</div>
+                </h1>
+                <p data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1000" class="text-xl md:text-2xl text-white mt-6">Belajar Bersama Alam, Tumbuh dengan Iman.</p>
+            </div>
+            <div class="lg:w-1/2 flex justify-center" data-aos="fade-left" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                <img src="assets/img/banner1.jpg" alt="" class="rounded-full h-80 w-80 md:w-[500px] md:h-[500px] object-cover" />
+            </div>
+        </div>
+        
+    </section>
+    <section id="beranda_mobile">
+        <div class="md:hidden">
+            <div class="flex justify-center mb-4" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                <img src="assets/img/banner5.jpg" alt="" class="w-full object-cover" />
+            </div>
+            <div class="text-left px-10">
+                <h1 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="text-4xl md:text-6xl text-[#1D4F86] font-bold">
+                    Sekolah <span class="text-[#12A780]"> Alam</span>
+                    <div class="text-[#F96A3C]">Creative Banjarbaru</div>
+                </h1>
+                <p data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1000" class="text-lg md:text-2xl text-black mt-2 font-semibold">Belajar Bersama Alam, Tumbuh dengan Iman.</p>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Tentang Kami -->
+    <section id="tentang_kami" class="py-12 px-4">
+        <div class="md:hidden px-6 md:px-0 mb-4" data-aos="zoom-in-up" data-aos-duration="1000">
+            <img src="assets/img/tentang_1.jpg" alt="" class="rounded-xl shadow-md w-full object-cover" />
+        </div>
+        <h2 data-aos="fade-down" data-aos-anchor-placement="top-bottom" class="text-3xl md:text-5xl md:text-[#1D4F86] text-black md:text-center font-bold mb-5 md:mb-16 px-6 md:px-0">Ten<span class="md:text-[#12A780] text-black">tang</span><span class="md:text-[#F96A3C] text-black"> Kami</span></h2>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 mb-4 md:mb-20">
+            <div class="md:w-2/5 space-y-4 text-center md:text-left md:mr-10" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+                <p class="text-lg md:text-2xl text-justify md:pb-6 px-6 md:px-0">SD Islam Creative di Banjarbaru adalah pilihan unggul bagi orang tua yang mencari pendidikan Islam yang seimbang antara akademik, karakter, kreativitas, dan lingkungan. Sekolah ini memberikan pembelajaran penuh, inklusif, berbasis alam, dan membina siswa agar tumbuh pintar, berakhlak, serta siap menghadapi tantangan masa depan.</p>
+            </div>
+            <div class="hidden md:flex md:w-3/5 px-6 md:px-0" data-aos="zoom-in-up" data-aos-duration="1000">
+                <img src="assets/img/tentang_1.jpg" alt="" class="rounded-xl shadow-md w-full object-cover" />
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto md:flex flex-col-reverse md:flex-row items-center gap-4 md:my-36 hidden">
+            <div class="md:w-3/5 relative">
+                <div class="flex md:relative w-full h-full md:h-96 gap-3 md:gap-0">
+                    <img data-aos="fade-down-right" data-aos-easing="ease-in-sine" data-aos-duration="800" data-aos-offset="200" src="assets/img/tentang_2.jpg" alt="" class="md:absolute md:-left-25 md:-top-25 rounded-xl w-44 md:w-1/2 shadow-md" />
+                    <img data-aos="fade-up-left" data-aos-easing="ease-in-sine" data-aos-duration="800" data-aos-offset="100" src="assets/img/asset_2.jpg" alt="" class="md:absolute md:left-56 md:bottom-0 rounded-xl w-44 md:w-1/2 shadow-md" />
+                </div>
+            </div>
+            <div class="md:w-2/5 space-y-6 text-center md:text-left">
+                <img src="assets/img/logo_clear.png" alt="" class="mx-auto w-36 md:w-44 hidden md:flex" data-aos="fade-down" data-aos-easing="ease-in-sine" data-aos-duration="1000" />
+                <p class="text-lg md:text-2xl text-justify pb-4 md:pb-8 px-6 md:px-0" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000">SD Islam Creative di Banjarbaru adalah pilihan unggul bagi orang tua yang mencari pendidikan Islam yang seimbang antara akademik, karakter, kreativitas, dan lingkungan. Sekolah ini memberikan pembelajaran penuh, inklusif, berbasis alam, dan membina siswa agar tumbuh pintar, berakhlak, serta siap menghadapi tantangan masa depan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi -->
+    <section id="visimisi" class="py-16 md:py-4 px-4 relative overflow-hidden">
+        <div class="md:static md:py-24">
+            <h2 data-aos="fade-down" data-aos-duration="800" class="text-4xl md:text-5xl font-bold text-center text-[#12A780] mb-10 md:pb-10">Visi <span class="text-[#F96A3C]">Misi</span></h2>
+            <img data-aos="zoom-in-right" data-aos-duration="800" src="assets/img/vector_2.png" alt="" class="absolute top-0 -left-12 md:-left-36 w-1/2 md:w-1/4 opacity-70 md:opacity-100" />
+            <img data-aos="zoom-in-left" data-aos-duration="800" src="assets/img/vector_1.png" alt="" class="absolute top-10 -right-32 md:-right-20 w-2/3 md:w-1/4 opacity-70 md:opacity-100" />
+            <img src="assets/img/vector_3.png" alt="" class="absolute bottom-0 md:-bottom-24 right-0 md:-right-40 w-1/2 md:w-1/4 opacity-70 md:opacity-100" />
+            <div class="flex flex-col md:flex-row justify-center items-start gap-6 md:gap-20 max-w-6xl md:max-w-none mx-auto">
+                <div data-aos="fade-right" data-aos-duration="800" class="bg-white rounded-xl drop-shadow-md drop-shadow-gray-500/50 w-5/6 mx-auto md:m-0 md:w-1/3 md:h-[400px] p-8 text-center">
+                    <h3 class="text-3xl md:text-4xl font-semibold text-[#12A780] mb-4">Visi</h3>
+                    <p class="text-lg md:text-xl md:px-8">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.”</p>
+                </div>
+                <div data-aos="fade-left" data-aos-duration="800" class="bg-white rounded-xl drop-shadow-md drop-shadow-gray-500/50 w-5/6 mx-auto md:m-0 md:w-1/3 md:h-[400px] p-8 text-center">
+                    <h3 class="text-3xl md:text-4xl font-semibold text-[#F96A3C] mb-4">Misi</h3>
+                    <p class="text-lg md:text-xl md:px-8">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section id="keunggulan" class="md:py-16 md:px-10 md:px-4">
+        <div class="text-center mb-12">
+            <h2 data-aos="fade-down" data-aos-duration="800" class="text-3xl md:text-5xl font-bold text-[#1D4F86]">Kenapa harus <span class="text-[#12A780]">SD Alam Creative </span><span class="md:hidden text-[#F96A3C]">Banjarbaru</span></h2>
+            <div data-aos="fade-down" data-aos-duration="800" class="hidden md:block text-3xl md:text-5xl font-bold text-[#F96A3C] md:mb-12">Banjarbaru</div>
+            <p data-aos="fade-down" data-aos-duration="800" class="text-lg md:text-xl md:font-semibold text-[#1D4F86] mt-4">Tempat terbaik untuk membangun akhlak, kemandirian, dan ingin tahu sejak dini.</p>
+        </div>
+        <div class="md:grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto hidden">
+            <div data-aos="flip-left" data-aos-duration="1000" data-aos-offset="100" class="bg-white rounded-xl drop-shadow-md drop-shadow-gray-500/50 p-4 text-center">
+                <img src="assets/img/banner2.jpg" alt="" class="rounded-xl h-48 md:h-64 w-full object-cover mb-4" />
+                <p class="text-lg font-semibold">Program tahfidz dan pembinaan anak</p>
+            </div>
+            <div data-aos="flip-left" data-aos-duration="1000" data-aos-offset="200" class="bg-white rounded-xl drop-shadow-md drop-shadow-gray-500/50 p-4 text-center">
+                <img src="assets/img/banner5.jpg" alt="" class="rounded-xl h-48 md:h-64 w-full object-cover mb-4" />
+                <p class="text-lg font-semibold">Kegiatan berkebun, beternak, dan eksplorasi alam</p>
+            </div>
+            <div data-aos="flip-left" data-aos-duration="1000" data-aos-offset="300" class="bg-white rounded-xl drop-shadow-md drop-shadow-gray-500/50 p-4 text-center">
+                <img src="assets/img/banner3.jpg" alt="" class="rounded-xl h-48 md:h-64 w-full object-cover mb-4" />
+                <p class="text-lg font-semibold">Program pengetahuan dan keterampilan hidup</p>
+            </div>
+        </div>
+        <div class="overflow-hidden mx-auto md:hidden">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper h-[300px]">
+                <!-- Slide 1 -->
+                <div class="swiper-slide !w-[85%] md:!w-[45%] lg:!w-[30%]">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                        <img src="assets/img/banner2.jpg" class="w-full h-40 object-cover" />
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold">Explore & Experience</h2>
+                            <p class="text-sm text-gray-600">Kegiatan berkebun, beternak, dan eksplorasi alam.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide !w-[85%] md:!w-[45%] lg:!w-[30%]">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                        <img src="assets/img/banner5.jpg" class="w-full h-40 object-cover" />
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold">Belajar Mandiri</h2>
+                            <p class="text-sm text-gray-600">Aktivitas di alam terbuka mendorong kemandirian.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide !w-[85%] md:!w-[45%] lg:!w-[30%]">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                        <img src="assets/img/banner3.jpg" class="w-full h-40 object-cover" />
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold">Bersama Alam</h2>
+                            <p class="text-sm text-gray-600">Aktivitas di alam terbuka mendorong kemandirian.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide !w-[85%] md:!w-[45%] lg:!w-[30%]">
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                        <img src="assets/img/tentang_2.jpg" class="w-full h-40 object-cover" />
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold">Bersama Teman</h2>
+                            <p class="text-sm text-gray-600">Aktivitas di alam terbuka mendorong kemandirian.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swiper-pagination mt-4"></div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Kontak Kami -->
+    <section id="kontak" class="py-16 px-10 md:px-4" data-aos="zoom-in-up" data-aos-duration="1000">
+        <h2 data-aos="fade-down" data-aos-anchor-placement="top-bottom" class="text-4xl md:text-5xl text-[#1D4F86] text-center font-bold mb-5 md:mb-10">Kontak<span class="text-[#F96A3C]"> Kami</span></h2>
+        <div class="md:w-4/6 md:h-1/3 bg-white drop-shadow-md drop-shadow-gray-500/50 rounded-xl max-w-7xl mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-6">
+                <h3 class="text-2xl md:text-3xl font-semibold">Hubungi Kami</h3>
+                <div class="flex items-start gap-2">
+                    <img src="assets/logo/whatsapp.png" class="w-6 h-6" />
+                    <div>
+                        <p class="md:text-xl font-semibold">WhatsApp</p>
+                        <p>+62 811 500 5857</p>
+                        <p>+62 811 500 5857</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <img src="assets/logo/youtube.png" class="w-6 h-6" />
+                    <p class="md:text-xl font-semibold">SDIC Banjarbaru</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <img src="assets/logo/instagram.png" class="w-6 h-6" />
+                    <p class="md:text-xl font-semibold">sekolahalambanjarbaru</p>
+                </div>
+                <div class="pt-5 md:pt-10">
+                    <h4 class="text-xl md:text-2xl font-semibold mb-2 md:mb-5">Lokasi</h4>
+                    <p class="text-justify">Jalan Trikora RT 11 RW 03, Landasan Ulin Tengah, Kecamatan Liang Anggang, Kota Banjarbaru, Kalimantan Selatan</p>
+                </div>
+            </div>
+            <div class="md:col-span-2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.545939495459!2d114.72553887473177!3d-3.4599144965145006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68347c86fbdf5%3A0x74b2d8f19584e93a!2sSekolah%20Alam%20Banjarbaru!5e0!3m2!1sen!2sid!4v1752217183337!5m2!1sen!2sid" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[url('assets/img/banner1.jpg')] bg-cover bg-center">
+        <div class="bg-white/85 py-6 text-center text-md md:text-lg">
+            © Copyright SD Alam Creative Banjarbaru. All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="fixed bottom-8 md:bottom-16 right-8 z-50">
+        <a href="https://wa.me/6285219404148"
+            class="flex items-center bg-white shadow-md px-3 md:px-5 py-2 md:py-3 rounded-full gap-2 hover:bg-green-500 hover:text-white transition">
+            <img src="assets/logo/whatsapp.png" alt="" class="w-6 h-6" />
+            <span class="font-semibold">Hubungi Kami</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Mobile Menu Script -->
+    <script>
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('overlay');
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+
+        openBtn.addEventListener('click', () => {
+            sidebar.classList.remove('translate-x-full');
+            overlay.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('translate-x-full');
+            overlay.classList.add('hidden');
+        });
+    </script>
+
+    <script>
+        new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 20,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            initialSlide: 1,
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.2,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 3.2,
+                    centeredSlides: false,
+                },
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
