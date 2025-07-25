@@ -81,6 +81,7 @@
         position: relative;
         display: inline-block;
       }
+
       .section-title:after {
         content: "";
         position: absolute;
@@ -91,6 +92,20 @@
         background-color: #1d4f86;
       }
 
+      .section-title2 {
+        position: relative;
+        display: inline-block;
+      }
+      .section-title2:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: -12px;
+        left: 0;
+        background-color: #e05a2e;
+      }
+
     </style>
   </head>
 
@@ -98,7 +113,7 @@
     <!-- Navbar -->
     <header class="fixed w-full top-0 z-50 bg-white shadow">
       <div
-        class="max-w-[90rem] mx-auto flex justify-between items-center px-4 py-3"
+        class="max-w-[90rem] mx-auto flex justify-between items-center px-4 py-6"
       >
         <div class="text-2xl font-bold text-blue-700">
           <img
@@ -503,7 +518,7 @@
       <section id="testimoni" class="py-16 bg-gray-50">
         <div class="container mx-auto px-8 md:px-10">
           <h2
-            class="text-3xl font-bold text-center mb-12 section-title"
+            class="text-3xl md:text-4xl font-bold text-center mb-12 section-title"
             data-aos="fade-up"
           >
             Testimoni
@@ -571,58 +586,117 @@
       </section>
 
       <!-- KONTAK -->
-      <section id="kontak" class="py-36 px-4 md:px-36 bg-primary text-white">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+      <section id="kontak" class="py-20 px-4 bg-white text-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 section-title" data-aos="fade-up">
             Hubungi Kami
           </h2>
-
-          <div class="grid md:grid-cols-2 gap-8">
-            <div data-aos="fade-right">
-              <h3 class="text-2xl font-semibold mb-4">Informasi Kontak</h3>
-              <div class="space-y-4">
-                <div class="flex items-start">
-                  <i class="fas fa-map-marker-alt mt-1 mr-3 w-3"></i>
-                  <p class="text-justify text-base md:text-lg">
-                    Jalan Trikora RT 11 RW 03, Landasan Ulin Tengah, Kec. Liang
-                    Anggang, Kota Banjarbaru
-                  </p>
+      
+          <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Kolom Kiri -->
+            <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
+              <!-- Lokasi -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-red-500 transition-all shadow-sm" data-aos="fade-right">
+                <div class="flex items-center mb-5">
+                  <div class="bg-red-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-map-marker-alt text-red-500 text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Alamat Sekolah</h3>
                 </div>
-                <div class="flex items-start">
-                  <i class="fas fa-phone-alt mt-1 mr-3 w-3"></i>
-                  <p class="text-justify text-base md:text-lg">
-                    +62 123 4567 890
-                  </p>
+                <address class="not-italic text-gray-600 pl-14">
+                  Jalan Trikora RT 11 RW 03, Landasan Ulin Tengah, Kec. Liang Anggang, Kota Banjarbaru
+                </address>
+              </div>
+      
+              <!-- Jam Operasional -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-amber-500 transition-all shadow-sm" data-aos="fade-right" data-aos-delay="100">
+                <div class="flex items-center mb-5">
+                  <div class="bg-amber-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-clock text-amber-500 text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Jam Operasional</h3>
                 </div>
-                <div class="flex items-start">
-                  <i class="fas fa-envelope mt-1 mr-3 w-3"></i>
-                  <p class="text-justify text-base md:text-lg">
-                    info@sekolahalamcreative.edu
-                  </p>
+                <div class="pl-16 space-y-3">
+                  <div class="flex justify-between text-gray-600">
+                    <span>Senin - Jumat</span>
+                    <span class="font-medium">07:00 - 16:00</span>
+                  </div>
+                  <div class="flex justify-between text-gray-600">
+                    <span>Sabtu</span>
+                    <span class="font-medium">08:00 - 12:00</span>
+                  </div>
+                  <div class="pt-3 text-sm text-gray-500">
+                    <i class="fas fa-exclamation-triangle mr-2 text-amber-400"></i>
+                    Tutup pada Minggu & hari libur nasional
+                  </div>
                 </div>
               </div>
-
-              <div class="mt-8">
-                <h3 class="text-2xl font-semibold mb-4">Jam Operasional</h3>
-                <p class="text-base md:text-lg">
-                  Senin - Jumat : 07:00 - 16:00
-                </p>
-                <p class="text-base md:text-lg">Sabtu : 08:00 - 12:00</p>
+      
+              <!-- Media Sosial -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-pink-500 transition-all shadow-sm" data-aos="fade-right" data-aos-delay="200">
+                <div class="flex items-center mb-5">
+                  <div class="bg-pink-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-share-alt text-pink-500 text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Media Sosial</h3>
+                </div>
+                <div class="pl-16 space-y-4">
+                  <a href="#" class="flex items-center group">
+                    <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                      <i class="fab fa-instagram text-white text-sm"></i>
+                    </div>
+                    <span class="text-gray-600 group-hover:text-pink-500 transition">@sekolahalamcreative</span>
+                  </a>
+                  <a href="#" class="flex items-center group">
+                    <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                      <i class="fab fa-instagram text-white text-sm"></i>
+                    </div>
+                    <span class="text-gray-600 group-hover:text-pink-500 transition">@pauddlamcreative</span>
+                  </a>
+                  <a href="#" class="flex items-center group">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center mr-3">
+                      <i class="fas fa-globe text-white text-sm"></i>
+                    </div>
+                    <span class="text-gray-600 group-hover:text-blue-500 transition">sekolahalamcreative.sch.id</span>
+                  </a>
+                </div>
+              </div>
+      
+              <!-- Kontak Langsung -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-green-500 transition-all shadow-sm" data-aos="fade-right" data-aos-delay="300">
+                <div class="flex items-center mb-5">
+                  <div class="bg-green-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-phone-alt text-green-500 text-xl"></i>
+                  </div>
+                  <h3 class="text-xl font-bold">Kontak Langsung</h3>
+                </div>
+                <div class="pl-16 space-y-4">
+                  <a href="#" class="flex items-center group">
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                      <i class="fab fa-whatsapp text-white text-sm"></i>
+                    </div>
+                    <span class="text-gray-600 group-hover:text-green-500 transition">0822-1627-2819</span>
+                  </a><a href="#" class="flex items-center group">
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                      <i class="fab fa-whatsapp text-white text-sm"></i>
+                    </div>
+                    <span class="text-gray-600 group-hover:text-green-500 transition">0822-5118-7087</span>
+                  </a>
+                </div>
               </div>
             </div>
-
-            <div data-aos="fade-left">
-              <div class="rounded-xl">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.545939495459!2d114.72553887473177!3d-3.4599144965145006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68347c86fbdf5%3A0x74b2d8f19584e93a!2sSekolah%20Alam%20Banjarbaru!5e0!3m2!1sen!2sid!4v1752217183337!5m2!1sen!2sid"
-                  height="450"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  class="w-full rounded-xl"
-                ></iframe>
-              </div>
+      
+            <!-- Kolom Kanan - Peta -->
+            <div class="bg-white p-1 rounded-lg border border-gray-200 overflow-hidden shadow-sm" data-aos="fade-left">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.545939495459!2d114.72553887473177!3d-3.4599144965145006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68347c86fbdf5%3A0x74b2d8f19584e93a!2sSekolah%20Alam%20Banjarbaru!5e0!3m2!1sen!2sid!4v1752217183337!5m2!1sen!2sid"
+                height="100%"
+                class="w-full min-h-[400px] rounded-md"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -642,8 +716,8 @@
       <!-- Footer -->
       <footer class="bg-gray-50 text-white py-8">
         <div class="container mx-auto px-4">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
+          <div class="flex flex-col  justify-between items-center">
+            <div class="mb-4">
               <img
                 src="assets/img/logo_clear.png"
                 alt="School Logo"
@@ -656,26 +730,20 @@
 
             <div class="flex space-x-6">
               <a
-                href="#"
-                class="text-gray-800 hover:text-white transition duration-300"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-800 hover:text-white transition duration-300"
+                href="https://www.instagram.com/sekolahalambanjarbaru/?hl=en"
+                class="text-gray-800 hover:text-pink-500 transition duration-300"
               >
                 <i class="fab fa-instagram"></i>
               </a>
               <a
-                href="#"
-                class="text-gray-800 hover:text-white transition duration-300"
+                href="https://www.youtube.com/@sdicbanjarbaru2234/featured"
+                class="text-gray-800 hover:text-red-500 transition duration-300"
               >
                 <i class="fab fa-youtube"></i>
               </a>
               <a
-                href="#"
-                class="text-gray-800 hover:text-white transition duration-300"
+                href="https://tr.ee/-Oz-dOt4l0"
+                class="text-gray-800 hover:text-green-500 transition duration-300"
               >
                 <i class="fab fa-whatsapp"></i>
               </a>
