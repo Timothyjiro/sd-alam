@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sekolah Alam Creative Banjarbaru</title>
-    <link rel="icon" href="assets/img/logo_clear.png" />
+    <title>Website Sekolah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -77,6 +76,20 @@
         transform: translateX(0);
         opacity: 1;
       }
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: -12px;
+        left: 0;
+        background-color: #1d4f86;
+      }
+
     </style>
   </head>
 
@@ -182,7 +195,7 @@
       <!-- BERANDA -->
       <section
         id="beranda"
-        class="text-white py-20 md:py-60 relative"
+        class="text-white py-20 md:py-64 relative"
         style="
           background-image: url('assets/img/asset_2.jpg');
           background-size: cover;
@@ -214,7 +227,7 @@
       <section id="tentang" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4 md:px-10">
           <h2
-            class="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16 section-title"
+            class="text-2xl md:text-4xl font-bold mb-8 md:mb-16 section-title"
             data-aos="fade-up"
           >
             Tentang Kami
